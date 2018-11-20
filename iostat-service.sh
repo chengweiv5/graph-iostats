@@ -21,6 +21,7 @@ set format x "%H:%M\n%d/%m"
 set xtics nomirror scale 3,2
 set ylabel "Miliseconds"
 set samples 10
+set term png size 1920,1080
 plot "dat.dat" using 1:12 title "average wait time in ms (await)" with lines, \
 "dat.dat" using 1:13 title "average read wait time in ms (r_await)" with lines, \
 "dat.dat" using 1:14 title "average write wait time in ms (w_await)" with lines, \

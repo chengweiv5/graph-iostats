@@ -21,6 +21,7 @@ set format x "%H:%M\n%d/%m"
 set xtics nomirror scale 3,2
 set ylabel "MBs"
 set samples 10
+set term png size 1920,1080
 plot "dat.dat" using 1:8 title "reads MB per sec (rMB/s)" with lines, \
 "dat.dat" using 1:9 title "writes MB per sec (wMB/s)" with lines
 _EOF_

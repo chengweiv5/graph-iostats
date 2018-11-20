@@ -21,6 +21,7 @@ set format x "%H:%M\n%d/%m"
 set xtics nomirror scale 3,2
 set ylabel "Requests"
 set samples 10
+set term png size 1920,1080
 plot "dat.dat" using 1:11 title "average queue length (avgqu-sz)" with lines
 _EOF_
 

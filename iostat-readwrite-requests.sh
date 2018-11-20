@@ -21,6 +21,7 @@ set format x "%H:%M\n%d/%m"
 set xtics nomirror scale 3,2
 set ylabel "Requests"
 set samples 10
+set term png size 1920,1080
 plot "dat.dat" using 1:4 title "read req merged per sec (rrqm/s)" with lines, \
 "dat.dat" using 1:5 title "write req merged per sec (wrqm/s)" with lines, \
 "dat.dat" using 1:6 title "read req per sec (r/s)" with lines, \
