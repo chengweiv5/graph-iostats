@@ -3,8 +3,8 @@
 # iostat grapher. Note, in the following line the data
 # points will start at field $4 for rrqm/s
 #
-# 2015-10-29 16:31:08 Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await  svctm  %uti#
-# 2015-10-29 16:31:08 sda               0.00     2.60    0.00    3.40     0.00    22.40    13.18     0.00    0.18   0.18   0.06
+# 2018-11-20 10:28:35 Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+# 2018-11-20 10:28:35 sdb               0.06    63.16   44.30  102.43     0.71    13.15   193.41     6.41   43.71    9.20   58.64   0.95  13.90
 
 echo "usage: $0 <iostat.log> <disk name> <out.png>"
 echo "procesing $1 for device $2, plotting $3"
@@ -22,7 +22,9 @@ set xtics nomirror scale 3,2
 set ylabel "Miliseconds"
 set samples 10
 plot "dat.dat" using 1:12 title "average wait time in ms (await)" with lines, \
-"dat.dat" using 1:13 title "average service time in ms (svctm)" with lines
+"dat.dat" using 1:13 title "average read wait time in ms (r_await)" with lines, \
+"dat.dat" using 1:14 title "average write wait time in ms (w_await)" with lines, \
+"dat.dat" using 1:15 title "average service time in ms (svctm)" with lines
 _EOF_
 
 rm dat.dat
